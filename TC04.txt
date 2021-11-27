@@ -1,0 +1,35 @@
+public interface Test {
+
+	//Incomplete methods: 
+	//methods are by default abstract and public
+	 public void method1();
+	 public void method2();
+	 public void method3();
+	
+	//Data members: static and final 
+	int a=10;
+	String s="abc xyz";	
+}
+
+
+//Implementation CLass
+public class ImplentationClass implements Test {
+	public void method1() {
+		System.out.println("test method 1");
+		
+	}
+	public void method2() {
+		System.out.println("test method 2");
+	}
+	public void method3() {
+		System.out.println("test method 3");
+	}
+	
+	
+	public static void main(String[] args) {
+		ImplentationClass i=new ImplentationClass();
+		i.method1();
+		i.method2();
+		i.method3();
+	}
+}
