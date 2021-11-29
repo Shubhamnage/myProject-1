@@ -1,0 +1,437 @@
+UNIX --> It is an operating system. It does not provide GUI (graphical user interface)
+so we have perform all operations using CLI (command line interface)
+
+It is expected to have atleast basic knowledge of UNIX irrespective of job profile.
+
+Why UNIX?
+Advantages:
+1) It provides high security
+2) Multiple Users can login at the same time
+3) Multitasking
+4) reduced time to perform operations
+5) Low in maintainance
+
+Where do we use UNIX in Projects?
+1) Used to perform operations on server side documents/applications
+2) To access/analyze log files
+
+
+LINUX, fedora, redhat, ubantu --> subsets of UNIX --> GUI + CLI
+
+window where we write and execute UNIX commands --> terminal window
+
+files --> files
+folders --> directories
+
+To establish connection between server(UNIX) and local (windows 10) machines we
+make use of --> Putty Configuration
+
+========================================================================
+
+virtual system/terminal:
+
+https://cocalc.com/app
+
+We can not upload empty files and folders.
+To upload folders make use drag and drop.
+
+========================================================================
+
+Commands:
+
+~$ 
+
+$ --> represents we are open to write a new command
+~ --> default location --> Home directory  --> tilde operator
+
+default location --> windows 10 --> desktop
+default location --> UNIX --> Home directory 
+
+ls --> listing of files and directories in current working directory
+
+Names having .extension are all files
+names which do not have any extension are all (folders) directories
+
+ls -l --> long listing of data(filed and directories) current working directory
+
+drwxr-xr-x  6 user user        6 Aug 21 04:19  c --> directory
+-r-xr--rwx  1 user user      274 Aug 19 14:24  catfile.txt --> file
+
+drwxr-xr-x  6 user user        6 Aug 21 04:19  c
+
+Created by --> shravani --> sxp0123
+Last updated by --> x --> axb0456
+
+drwxr-xr-x  6 sxp0123 axb0456       6 Aug 21 04:19  c
+
+drwxr-xr-x  6 user user        6 Aug 21 04:19  c --> directory
+-r-xr--rwx  1 user user      274 Aug 19 14:24  catfile.txt --> file
+
+d --> directory
+- --> file
+
+rwxrwxrwx --> Ideal access
+rwxr-xr-x --> accesses for c
+
+r --> read/view
+w --> write/edit/modify
+x --> execute/copy/paste/delete
+
+rwx             r-x             r-x
+owner/user      group          others
+
+file --> created by Shravani --> owner /user --> rwx
+wants to be shared with 7 AUG -->others --> r--
+
+1 school
+50 students
+5 teachers
+1 computer
+
+5 IDs --> for students --> r--
+2 IDs --> for teachers --> rwx
+
+-|r-x|r--|rwx
+
+ls -a --> to list down all hidden files and folders
+
+Names starting with '.' are all hidden
+
+.                               .jupyter-blobs-v0.db  2021-11-16-093410.term
+..                              .smc                  2021-11-16-093628.term
+.2021-11-16-093410.term-0.term  .snapshots            B.txt
+.2021-11-16-093628.term-0.term  .ssh                  C.txt
+.bash_history                   1                     X
+.bash_profile                   1.txt                 folder
+
+ls -r --> to list the data in reverse order
+
+~$ ls
+1      2.txt                   2021-11-16-093628.term  C.txt  folder
+1.txt  2021-11-16-093410.term  B.txt                   X
+~$ ls -r
+folder  C.txt  2021-11-16-093628.term  2.txt  1
+X       B.txt  2021-11-16-093410.term  1.txt
+
+===================================================================
+
+ls --> 
+ls -l --> 
+ls -a -->
+ls -r -->
+
+========================================================
+All UNIX commands are case sensitive.
+
+~$ ls-l
+bash: ls-l: command not found
+~$ LS
+bash: LS: command not found
+~$ lS
+bash: lS: command not found
+
+============================================================
+
+pwd --> present working directory
+
+~$ pwd
+/home/user
+
+=============================================================
+
+cd --> change directory
+
+To move from one directory to another
+
+syntax: cd directoryname
+
+~$ cd A
+~/A$ ls
+3  4  5.txt
+~/A$ cd 4
+~/A/4$ ls
+B.txt  a  b  c
+~/A/4$ cd b
+~/A/4/b$ 
+
+~/A/4/b$ 
+
+Immediate parent of b --> 4
+Default parent of b --> Home directory --> ~
+
+parentframe --> To move back to immediate parent --> cd ..
+defaultcontent --> to move back to main page --> cd
+
+~/A/4/b$ cd ..
+~/A/4$ cd b
+~/A/4/b$ cd
+~$ 
+
+We can use path to directly move inside folders
+~$ cd A/4/b
+~/A/4/b$
+
+~/1/2/3/4/5/6/7$ cd ..
+~/1/2/3/4/5/6$ cd 1/2/3/4
+bash: cd: 1/2/3/4: No such file or directory
+~/1/2/3/4/5/6$ cd ~/1/2/3/4
+~/1/2/3/4$ cd
+~$ 
+=================================================================
+
+newdirectory
+new directory
+
+cd newdirectory
+cd new directory
+
+Whenever the file or directory names have space in it, include the name in '' before passing them
+to the command.
+
+~$ cd newdirectory
+~/newdirectory$ cd
+~$ cd new directory
+bash: cd: too many arguments
+~$ cd 'new directory'
+~/new directory$
+====================================================================
+To clean terminal window:
+
+ctrl +l --> history is available
+clear --> history is not available
+=====================================================================
+
+mkdir --> make a new directory
+
+syntax: mkdir directoryname
+
+make use of '-v' -> verbose to print the siccess messages.
+~/2$ mkdir -v B
+mkdir: created directory 'B'
+
+To create subdirectories separate the directory names using '/'
+~$ mkdir -v 2/C
+mkdir: created directory '2/C'
+
+To create parent and child directories in single command make use of -p to avaoid any errors.
+~$ mkdir -pv 3/A
+mkdir: created directory '3'
+mkdir: created directory '3/A'
+
+To create multiple subdirectories at same level. Provide the directory names in {} and separ
+ate the directory names by ','
+4 --> A B C D 
+
+mkdir -pv 4/A
+mkdir -pv 4/B
+mkdir -pv 4/C
+mkdir -pv 4/D
+
+mkdir -pv 4/{A,B,C,D}
+
+~$ mkdir -pv 4/{A,B,C,D}
+mkdir: created directory '4'
+mkdir: created directory '4/A'
+mkdir: created directory '4/B'
+mkdir: created directory '4/C'
+mkdir: created directory '4/D'
+
+~$ mkdir -pv 5/A
+mkdir: created directory '5'
+mkdir: created directory '5/A'
+~$ mkdir -pv 5/{B,C,D,E}
+mkdir: created directory '5/B'
+mkdir: created directory '5/C'
+mkdir: created directory '5/D'
+mkdir: created directory '5/E'
+~$ mkdir -v 5/{F,G}
+mkdir: created directory '5/F'
+mkdir: created directory '5/G'
+
+6 --> A,B,C,D --> 1,2,3,4
+
+mkdir -pv 6/{A,B,C,D}/{1,2,3,4}
+
+mkdir -pv 6/{A,B}/{1,2,3,4}
+
+~$ mkdir -pv 6/{A,B,C,D}/{1,2,3,4}
+mkdir: created directory '6'
+mkdir: created directory '6/A'
+mkdir: created directory '6/A/1'
+mkdir: created directory '6/A/2'
+mkdir: created directory '6/A/3'
+mkdir: created directory '6/A/4'
+mkdir: created directory '6/B'
+mkdir: created directory '6/B/1'
+mkdir: created directory '6/B/2'
+mkdir: created directory '6/B/3'
+mkdir: created directory '6/B/4'
+mkdir: created directory '6/C'
+mkdir: created directory '6/C/1'
+mkdir: created directory '6/C/2'
+mkdir: created directory '6/C/3'
+mkdir: created directory '6/C/4'
+mkdir: created directory '6/D'
+mkdir: created directory '6/D/1'
+mkdir: created directory '6/D/2'
+mkdir: created directory '6/D/3'
+mkdir: created directory '6/D/4'
+
+2021
+12 months
+30 days
+
+mkdir -pv 2021/{jan,feb,mar,apr,may}/{1,2,3,4,5,6,7,8}
+mkdir -pv 2021/{jan,feb,mar,apr,may}/{1..30} --> to provide within range
+
+1+12+30*12 = 373
+
+jan,mar,may,jul,aug,oct,dec --> 1..31
+feb --> 1..28
+apr,jun,sept,nov --> 1..30
+
+mkdir -pv 2021/{jan,mar,may,jul,aug,oct,dec}/{1..31} 2021/feb/{1..28} 2021/{apr,jun,sept,nov}/{1..30}
+
+mkdir -pv 2021/{jan,mar,may,jul,aug,oct,dec}/{1..31} 2021/feb/{1..28} 2021/{apr,jun,sept,nov}/{1..30}
+mkdir -pv 2021/feb/{1..28}
+mkdir -pv 2021/{apr,jun,sept,nov}/{1..30}
+
+========================================================================
+
+pwd
+cd
+cd path
+cd ..
+cd
+cd 'a b'
+mkdir
+mkdir -v --> verbose
+mkdir -pv parent/child
+mkdir -pv parent/{1,2,3,4}
+ 
+mkdir -pv A/B/C/D
+mkdir -pv A/{B,C,D}
+
+ls
+ls -l
+ls -a
+ls -r
+=======================================================================
+
+rmdir --> remove directories
+
+pre-condition : the directory to be removed must be empty
+
+syntax: rmdir directoryname
+
+-v --> verbose --> for printing of success message on terminal
+
+~$ rmdir 2021
+rmdir: failed to remove '2021': Directory not empty
+~$ rmdir -v a
+rmdir: removing directory, 'a'
+~$ rmdir -v b
+rmdir: removing directory, 'b'
+~$ rmdir 4
+rmdir: failed to remove '4': Directory not empty
+
+===========================================================
+
+rm -r --> To remove directories (empty+filled)
+
+syntax: rm -r directoryname
+
+~$ rm -rv 3
+removed directory '3/A'
+removed directory '3'
+
+~$ rmrm
+============================================================
+pwd, cd, mkdir, rmdir --> these are directory specific commands
+
+================================================================
+
+a.pdf a.txt a.docx
+
+Whenever we pass filenames in the command, passing the filename along with extension is mandatory.
+
+rm --> to remove files
+
+syntax: rm filename.extension
+
+~$ rm -v 2.txt
+removed '2.txt'
+
+rm -i --> to view confirmation message before file/directory removal
+Provide Y/N as input
+
+syntax: rm -i filename.extension
+
+~$ rm -i 1.txt
+rm: remove regular file '1.txt'? Y
+
+~$ rm -ri c
+rm: remove directory 'c'? Y
+
+======================================================================
+
+wc --> word count
+
+syntax: wc filename.extn
+
+~$ wc 'text file new.txt'
+  177 | 2455| 16584 |text file new.txt
+No of lines| no of words| no of characters| filename
+======================================================================
+
+cat --> 1) To view the content of the file syntax: cat filename
+2) To view the content of 2 or more files together
+syntax: cat file1 file2
+3) To concatenate the data of 2 or more files
+
+syntax: cat file1 file2 >abc
+
+A new file naming abc will be created which will have dat of both file1 and file2 in it.
+
+=====================================================================
+
+vi --> 1) To create a new file and add data in it
+2) To update/modify an existing file
+
+steps:
+1) vi filename
+2) press "i" to move inside insert mode
+3) add/modify data as required
+4) press "esc" to move out of insert mode
+5) press shift + ; = :
+6) press "wq"
+7) press "enter" to move back to terminal
+
+======================================================================
+
+touch --> To create an empty file
+
+syntax: touch filename
+
+~$ touch 1.txt
+
+========================================================================
+
+mkdir
+mkdir -pv parent/child
+cd
+cat
+ls
+ls -l
+rmdir
+rm -r
+-v
+rm filename
+rm -i
+rm -ri
+vi
+touch
+wc
+ls -a
+cat file1 file2 >newfile.extn
+=========================================================================
