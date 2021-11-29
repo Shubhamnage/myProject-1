@@ -31,4 +31,4 @@ public class Sample {
 	public void test3() {
 		System.out.println("non-static status-2");
 	}
-}
+}seyje5
